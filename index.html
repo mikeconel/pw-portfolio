@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Patrick Williams | Chartered Financial Planner & Financial Adviser</title>
+  <!-- Bootstrap 5 + Icons + Google Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #0a2540;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, .font-serif {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* custom brand & accent */
+    .bg-navy {
+      background: #0a2540;
+    }
+    .text-navy {
+      color: #0a2540;
+    }
+    .border-navy {
+      border-color: #0a2540;
+    }
+    .btn-gold {
+      background: #d4af37;
+      color: #0a2540;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+    }
+    .btn-gold:hover {
+      background: #c2a12e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      color: #0a2540;
+    }
+    .btn-outline-navy {
+      border: 1.5px solid #0a2540;
+      color: #0a2540;
+      background: transparent;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .btn-outline-navy:hover {
+      background: #0a2540;
+      color: white;
+    }
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2rem;
+      font-weight: 700;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #d4af37;
+    }
+    .card-hover {
+      transition: all 0.25s ease;
+      border: none;
+      border-radius: 20px;
+      background: white;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+    }
+    .badge-cred {
+      background: #e9ecef;
+      color: #0a2540;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+    }
+    .skill-tag {
+      background: #f1f5f9;
+      padding: 0.35rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #0f3b5e;
+      margin: 0.25rem;
+      display: inline-block;
+    }
+    .timeline-dot {
+      width: 12px;
+      height: 12px;
+      background: #d4af37;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 12px;
+    }
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      background: #eef2ff;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #0a2540;
+      font-size: 1.3rem;
+    }
+    footer a {
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .hero-badge {
+      background: rgba(10,37,64,0.08);
+      backdrop-filter: blur(2px);
+      border-radius: 50px;
+      padding: 0.3rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      width: fit-content;
+    }
+    .profile-img-placeholder {
+      background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 100%);
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #0a2540;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      margin: 0 auto;
+    }
+    /* honours special styling */
+    .honours-card {
+      background: linear-gradient(145deg, #fff9e8 0%, #fff2dd 100%);
+      border-left: 6px solid #d4af37;
+      transition: all 0.25s ease;
+    }
+    .honours-card:hover {
+      transform: translateX(5px);
+      box-shadow: 0 15px 25px -12px rgba(0,0,0,0.15);
+    }
+    /* nav link interactive states */
+    .nav-link-custom {
+      color: #0a2540;
+      font-weight: 600;
+      transition: color 0.2s ease;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+    }
+    .nav-link-custom:hover {
+      color: #d4af37 !important;
+      background: rgba(212, 175, 55, 0.05);
+    }
+    .nav-link-custom.active-link {
+      color: #b38f2a !important;
+      background: rgba(212, 175, 55, 0.1);
+      font-weight: 700;
+    }
+    @media (max-width: 768px) {
+      .display-4 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation with interactive color states (hover, active) -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top py-3">
+  <div class="container">
+    <a class="navbar-brand fw-bold fs-4" href="#">
+      <span class="text-navy">Patrick</span> <span class="text-gold" style="color:#d4af37;">Williams</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2" id="navMenu">
+        <li class="nav-item"><a class="nav-link-custom" href="#home" data-nav="home">Home</a></li>
+        <li class="nav-item"><a class="nav-link-custom" href="#about" data-nav="about">About</a></li>
+        <li class="nav-item"><a class="nav-link-custom" href="#credentials" data-nav="credentials">Qualifications</a></li>
+        <li class="nav-item"><a class="nav-link-custom" href="#experience" data-nav="experience">Experience</a></li>
+        <li class="nav-item"><a class="nav-link-custom" href="#skills" data-nav="skills">Expertise</a></li>
+        <li class="nav-item"><a class="nav-link-custom" href="#contact" data-nav="contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section (First person throughout) -->
+<section id="home" class="py-5 mt-2">
+  <div class="container py-4">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7 order-lg-1">
+        <div class="hero-badge mb-3">
+          <i class="bi bi-patch-check-fill me-1" style="color:#d4af37;"></i> Chartered ALFBF | FCA Wealth Licence
+        </div>
+        <h1 class="display-3 fw-bold mb-3">Patrick Williams <span style="color:#0a2540;"><br>Chartered Financial Planner</span></h1>
+        <p class="lead mb-4 text-secondary">With over 2 decades of accountancy & business strategy experience, I now help clients build, protect and grow wealth as a fully qualified Financial Adviser. <strong>FE Analytics Certified</strong>.</p>
+        <div class="d-flex flex-wrap gap-3 mb-4">
+          <a href="#contact" class="btn btn-gold px-4 py-2 rounded-pill"><i class="bi bi-envelope-paper me-2"></i>Arrange a consultation</a>
+          <a href="#credentials" class="btn btn-outline-navy px-4 py-2 rounded-pill"><i class="bi bi-journal-bookmark-fill me-2"></i>View my credentials</a>
+        </div>
+        <div class="d-flex gap-3 flex-wrap">
+          <span><i class="bi bi-telephone-fill text-gold me-1" style="color:#d4af37;"></i> 07432604830</span>
+          <span><i class="bi bi-envelope-fill me-1" style="color:#d4af37;"></i> patrickwilliams5@yahoo.co.uk</span>
+          <span><i class="bi bi-geo-alt-fill me-1" style="color:#d4af37;"></i> London, UK</span>
+        </div>
+      </div>
+      <div class="col-lg-5 order-lg-2 text-center">
+        <div class="profile-img-placeholder mx-auto">
+          <i class="bi bi-person-bounding-box" style="font-size: 4rem;"></i>
+        </div>
+        <div class="mt-3 d-flex justify-content-center gap-2 flex-wrap">
+          <span class="badge-cred"><i class="bi bi-mortarboard-fill me-1"></i>Level 6 DipFA</span>
+          <span class="badge-cred"><i class="bi bi-shield-check"></i> CEMAP in progress</span>
+          <span class="badge-cred"><i class="bi bi-graph-up"></i> Equity Release Cert</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About / Professional Profile (First person) -->
+<section id="about" class="py-5 bg-white">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-md-7">
+        <h2 class="section-title fs-1 fw-bold">Professional Profile</h2>
+        <p class="fs-5 mb-3">An experienced <strong>Bookkeeper/Accountant with over 2 decades</strong> of experience, having created bespoke online accounting platforms that maximised efficiency for diverse businesses. Now transitioning as a <strong>self-employed trainee financial adviser at Aitana Financial Services</strong>, he holds the <strong>FCA Wealth Licence</strong> and actively provide investment advice to retail clients.</p>
+        <p class="mb-3">Currently Currently working towards the Mortgage & Protection licence (CEMAP Advanced) to offer holistic mortgage and protection advice. Patrick's unique blend of technical accounting mastery and financial planning ensures robust, client-centric solutions.</p>
+        <div class="row mt-4">
+          <div class="col-sm-6">
+            <ul class="list-unstyled">
+              <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#d4af37;"></i> FCA Wealth Licence (Retail Investment)</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#d4af37;"></i> Certificate in Mortgage Advice (CeMAP)</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#d4af37;"></i> Equity Release Certified (CER)</li>
+            </ul>
+          </div>
+          <div class="col-sm-6">
+            <ul class="list-unstyled">
+              <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#d4af37;"></i> PGDip Advanced Accounting (equiv 80% ACCA)</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#d4af37;"></i> 6-step financial advice process expert</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#d4af37;"></i> FE Analytics Certified</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <!-- Honours & Awards - Made to stand out more -->
+        <div class="honours-card p-4 rounded-4 shadow-lg border-0">
+          <h3 class="h4 fw-bold mb-3"><i class="bi bi-trophy-fill me-2" style="color:#d4af37; font-size: 1.6rem;"></i> Honours & Awards</h3>
+          <ul class="list-unstyled">
+            <li class="mb-3 pb-1 border-bottom border-warning-subtle"><span class="timeline-dot"></span> <strong class="fs-5">Chartered ALFBF (Financial Adviser) 2024</strong></li>
+            <li class="mb-3 pb-1 border-bottom border-warning-subtle"><span class="timeline-dot"></span> <strong>IAB Bookkeeper of the Year finalist (2005)</strong></li>
+            <li class="mb-3 pb-1"><span class="timeline-dot"></span> <strong>IAB Bookkeeping Software Developer of the Year finalist (2005)</strong></li>
+          </ul>
+          <hr class="my-3">
+          <h3 class="h5 fw-bold mb-3"><i class="bi bi-people-fill me-2" style="color:#d4af37;"></i> Professional Memberships</h3>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="skill-tag bg-white border">Chartered Financial Adviser - LIBF</span>
+            <span class="skill-tag bg-white border">ACCA (Former)</span>
+            <span class="skill-tag bg-white border">Institute of Financial Accountants</span>
+            <span class="skill-tag bg-white border">IAB (Former)</span>
+          </div>
+   
+          <div class="mt-4 pt-2 text-center">
+            <a href="https://aitana.co.uk/team/" target="_blank" class="btn btn-sm btn-outline-navy rounded-pill px-3"><i class="bi bi-box-arrow-up-right"></i> Aitana Financial Services</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Qualifications & Education Section (first-person subtle) -->
+<section id="credentials" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title fs-1 fw-bold" style="display: inline-block;">Education & Professional Designations</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="card-hover card p-3 h-100 shadow-sm rounded-4">
+          <div class="card-body"><i class="bi bi-mortarboard fs-1" style="color:#d4af37;"></i><h5 class="card-title fw-bold mt-2">Level 6 Diploma in Advanced Financial Advice</h5><p class="text-muted">LIBF · May 2024</p><hr><small>Chartered status pathway</small></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-hover card p-3 h-100 shadow-sm rounded-4"><div class="card-body"><i class="bi bi-bank2 fs-1" style="color:#d4af37;"></i><h5 class="card-title fw-bold mt-2">Level 4 Diploma for Professional Financial Advisers</h5><p class="text-muted">Chartered Banker Institute · Mar 2024</p><small>R01 to R06</small></div></div>
+      </div>
+      <div class="col-md-6 col-lg-4"><div class="card-hover card p-3 h-100 shadow-sm rounded-4"><div class="card-body"><i class="bi bi-house-heart fs-1" style="color:#d4af37;"></i><h5 class="card-title fw-bold mt-2">Certificate in Mortgage Advice & Practice</h5><p class="text-muted">LIBF · Sept 2024</p><small>CeMAP qualified</small></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="card-hover card p-3 h-100 shadow-sm rounded-4"><div class="card-body"><i class="bi bi-graph-up-arrow fs-1" style="color:#d4af37;"></i><h5 class="card-title fw-bold mt-2">Certificate in Regulated Equity Release</h5><p class="text-muted">LIBF · Nov 2024</p></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="card-hover card p-3 h-100 shadow-sm rounded-4"><div class="card-body"><i class="bi bi-calculator-fill fs-1" style="color:#d4af37;"></i><h5 class="card-title fw-bold mt-2">Post Graduate Diploma - Advanced Accounting</h5><p class="text-muted">University of East London · June 1998 (equiv 80% ACCA)</p></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="card-hover card p-3 h-100 shadow-sm rounded-4"><div class="card-body"><i class="bi bi-bar-chart-steps fs-1" style="color:#d4af37;"></i><h5 class="card-title fw-bold mt-2">Level 4 Advanced CEMAP (in progress)</h5><p class="text-muted">LIBF · Expected completion Sept 2026</p><span class="badge bg-warning-subtle text-dark">Mortgage & Protection licence track</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Work Experience + core competencies (First person) -->
+<section id="experience" class="py-5 bg-white">
+  <div class="container">
+    <div class="row"><div class="col-12"><h2 class="section-title fs-1 fw-bold">Career Experience</h2></div></div>
+    <div class="row mt-4">
+      <div class="col-lg-6">
+        <div class="border-start border-4 border-gold ps-4 mb-5" style="border-color:#d4af37 !important;">
+          <h3 class="h3 fw-bold">Trainee Financial Adviser</h3>
+          <p class="text-muted mb-2"><i class="bi bi-briefcase-fill me-1"></i> Aitana Financial Services · Nov 2025 – Present (3 months)</p>
+          <ul class="list-unstyled"><li class="mb-2"><i class="bi bi-dot me-2"></i>Completed FCA Wealth Licence – authorised to provide investment advice to retail clients.</li><li class="mb-2"><i class="bi bi-dot me-2"></i>Currently pursuing Mortgage & Protection licence to broaden my advisory capabilities.</li><li class="mb-2"><i class="bi bi-dot me-2"></i>Engaging clients using 6-step financial advice process: fact-finding, risk profiling, suitability reports & ongoing reviews.</li><li class="mb-2"><i class="bi bi-dot me-2"></i>FE Analytics certified for advanced research & fund analysis.</li></ul>
+        </div>
+        <div class="border-start border-4 border-gold ps-4" style="border-color:#d4af37 !important;">
+          <h3 class="h3 fw-bold">Accountant / Bookkeeper</h3>
+          <p class="text-muted mb-2"><i class="bi bi-building me-1"></i> Patrick Williams Associates · 2004 – Present (over 20 years)</p>
+          <ul class="list-unstyled"><li class="mb-2"><i class="bi bi-dot me-2"></i>Founder of accountancy practice serving diverse businesses; designed bespoke Excel-based accounting systems, real-time P&L & balance sheets.</li><li class="mb-2"><i class="bi bi-dot me-2"></i>Managed full-spectrum: VAT returns, payroll compliance, bank reconciliations, and strategic financial planning.</li><li class="mb-2"><i class="bi bi-dot me-2"></i>Trusted business partner advising on cash flow optimisation and tax strategies.</li></ul>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="bg-light p-4 rounded-4 h-100 shadow-sm">
+          <h3 class="h4 fw-bold mb-3"><i class="bi bi-star-fill me-1" style="color:#d4af37;"></i> Core Competencies (Financial Advice)</h3>
+          <div class="d-flex flex-wrap gap-2 mb-3"><span class="skill-tag">Strategic financial analysis</span><span class="skill-tag">Suitability reports</span><span class="skill-tag">Asset allocation & retirement planning</span><span class="skill-tag">Tax & estate planning</span><span class="skill-tag">Risk tolerance profiling</span><span class="skill-tag">Investment performance reporting</span><span class="skill-tag">Cash flow modelling</span></div>
+          <hr><p class="mt-3"><i class="bi bi-chat-quote-fill fs-5 me-2" style="color:#d4af37;"></i> “My approach simplifies complex financial concepts, ensuring clients fully understand options, risks and rewards before making informed decisions.”</p><div class="mt-3 small text-secondary">Fully compliant with FCA regulations • 6-step advice process mastery</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Key Skills -->
+<section id="skills" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5"><h2 class="section-title fs-1 fw-bold">Technical & Soft Skills</h2></div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4"><div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-white h-100 shadow-sm"><i class="bi bi-shield-lock fs-2" style="color:#d4af37;"></i><div><strong>Financial Regulations & Compliance</strong><br><span class="small text-secondary">FCA rules, AML, Consumer Duty</span></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-white h-100 shadow-sm"><i class="bi bi-graph-up fs-2" style="color:#d4af37;"></i><div><strong>Budgeting & Forecasting</strong><br><span class="small text-secondary">Real-time P&L, cashflow management</span></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-white h-100 shadow-sm"><i class="bi bi-people fs-2" style="color:#d4af37;"></i><div><strong>Building Trust & Relationships</strong><br><span class="small text-secondary">Long-term client partnerships</span></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-white h-100 shadow-sm"><i class="bi bi-calculator fs-2" style="color:#d4af37;"></i><div><strong>Accounting Principles & P&L Mgmt</strong><br><span class="small text-secondary">VAT, payroll, year-end</span></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-white h-100 shadow-sm"><i class="bi bi-diagram-3 fs-2" style="color:#d4af37;"></i><div><strong>Strategic Problem-Solving</strong><br><span class="small text-secondary">Risk management & mitigation</span></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-white h-100 shadow-sm"><i class="bi bi-chat-dots fs-2" style="color:#d4af37;"></i><div><strong>Excellent Communication</strong><br><span class="small text-secondary">Simplifying complex finance for clients</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact with BOT detection & direct email via mailto (using FormSubmit.co as secure relay) 
+     To ensure email truly sends to patrickwilliams5@yahoo.co.uk, we implement a hidden honeypot bot detection, plus a fetch to a free email API (Formspree or similar) but for pure static HTML we use mailto fallback? 
+     Actually best is to use a simple serverless POST to a reliable email service. I will implement EmailJS-like but without needing external lib? I'll use a secure but direct FormSubmit endpoint that redirects to his email. Since I can't install backend, I'll implement using fetch to "https://formspree.io/f/mldrjzka" but that requires account. Instead I will craft a working form with bot detection and use mailto as fallback but modern employers expect direct delivery: I'll integrate a simple public API called "Web3Forms" or I'll make the form submit via GET to a proxy? For true direct sending I'll implement using form action="https://formsubmit.co/patrickwilliams5@yahoo.co.uk" with bot detection and custom validation.
+     This is robust and sends directly to his email. Add honeypot field.
+  -->
+<section id="contact" class="py-5 bg-navy text-white" style="background: #0a2540;">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-7">
+        <h2 class="display-5 fw-bold">Let's discuss your financial future</h2>
+        <p class="lead mt-3 opacity-75">Whether you need investment planning, mortgage advice or holistic wealth management – I offer tailored guidance aligned with FCA standards.</p>
+        <div class="mt-4 d-flex flex-column gap-3">
+          <div><i class="bi bi-telephone-fill me-3 fs-5" style="color:#d4af37;"></i> <strong>07432604830</strong></div>
+          <div><i class="bi bi-envelope-fill me-3 fs-5" style="color:#d4af37;"></i> patrickwilliams5@yahoo.co.uk</div>
+          <div><i class="bi bi-geo-alt-fill me-3 fs-5" style="color:#d4af37;"></i> London, United Kingdom (remote & face-to-face consultations)</div>
+          <div><i class="bi bi-linkedin me-3 fs-5" style="color:#d4af37;"></i> linkedin.com/in/patrick-williams-finance</div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="bg-white p-4 rounded-4 text-dark shadow">
+          <h4 class="fw-bold mb-3">Request a callback / Send message</h4>
+          <form id="contactForm" action="https://formsubmit.co/patrickwilliams5@yahoo.co.uk" method="POST" onsubmit="return validateBot(event)">
+            <!-- honeypot bot detection field (hidden) -->
+            <input type="text" name="_honey" style="display:none">
+            <!-- disable captcha but optional -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="New enquiry from Patrick Williams Portfolio">
+            <input type="hidden" name="_next" value="https://patrickwilliams.uk/thankyou">
+            <div class="mb-3">
+              <input type="text" class="form-control" name="name" id="nameInput" placeholder="Full name" required>
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" name="email" id="emailInput" placeholder="Email address" required>
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" name="message" rows="3" placeholder="Brief message or enquiry" id="msgInput" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold w-100 rounded-pill py-2 fw-semibold">Send message <i class="bi bi-send"></i></button>
+            <div id="formFeedback" class="mt-3 small text-center text-dark"></div>
+          </form>
+          <p class="small text-muted mt-3 text-center">I’ll respond within 24 hours. No obligation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer with live link -->
+<footer class="py-4 bg-white border-top">
+  <div class="container text-center">
+    <p class="mb-0 small text-secondary">© 2026 Patrick Williams - Chartered Financial Planner. FCA Wealth Licence holder. <br>This site is for professional informational purposes. | <a href="http://217.154.38.190/" target="_blank" class="text-decoration-none">BIS Smart Digital Solutions</a></p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // NAVIGATION INTERACTIVE: on hover colour changes (CSS does), plus active link management.
+  const navLinks = document.querySelectorAll('.nav-link-custom');
+  function setActive(selectedNav) {
+    navLinks.forEach(link => {
+      link.classList.remove('active-link');
+    });
+    selectedNav.classList.add('active-link');
+  }
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      setActive(this);
+      // Smooth scroll handled elsewhere, but active style persists.
+      const targetId = this.getAttribute('href');
+      if (targetId && targetId !== "#") {
+        e.preventDefault();
+        const targetElem = document.querySelector(targetId);
+        if (targetElem) {
+          targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+    // also add hover is already via CSS, we keep third color active.
+  });
+  // Optionally detect scroll to set active automatically based on sections
+  const sections = ['home', 'about', 'credentials', 'experience', 'skills', 'contact'];
+  window.addEventListener('scroll', () => {
+    let current = '';
+    for (let section of sections) {
+      const element = document.getElementById(section);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 150 && rect.bottom >= 80) {
+          current = section;
+          break;
+        }
+      }
+    }
+    navLinks.forEach(link => {
+      link.classList.remove('active-link');
+      const href = link.getAttribute('href')?.substring(1);
+      if (href === current) {
+        link.classList.add('active-link');
+      }
+    });
+  });
+
+  // Bot detection & form validation with honeypot
+  function validateBot(event) {
+    const honeyInput = document.querySelector('input[name="_honey"]');
+    if (honeyInput && honeyInput.value !== "") {
+      event.preventDefault();
+      document.getElementById('formFeedback').innerHTML = '<div class="alert alert-danger">Bot detected. Submission blocked.</div>';
+      return false;
+    }
+    const name = document.getElementById('nameInput')?.value.trim();
+    const email = document.getElementById('emailInput')?.value.trim();
+    const msg = document.getElementById('msgInput')?.value.trim();
+    if (!name || !email || !msg) {
+      event.preventDefault();
+      document.getElementById('formFeedback').innerHTML = '<div class="alert alert-danger">Please fill all fields.</div>';
+      return false;
+    }
+    document.getElementById('formFeedback').innerHTML = '<div class="alert alert-success">Sending your message...</div>';
+    return true; // form will submit to formsubmit.co which emails patrickwilliams5@yahoo.co.uk
+  }
+  // ensure fallback feedback after native submit
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      if (!validateBot(e)) {
+        e.preventDefault();
+      }
+    });
+  }
+</script>
+</body>
+</html>
