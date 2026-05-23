@@ -92,6 +92,20 @@
       padding: 0.5rem 1rem;
       border-radius: 40px;
       font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .digital-badge {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      cursor: pointer;
+      transition: transform 0.2s;
+      vertical-align: middle;
+    }
+    .digital-badge:hover {
+      transform: scale(1.1);
     }
     .skill-tag {
       background: #f1f5f9;
@@ -176,6 +190,22 @@
       background: rgba(212, 175, 55, 0.1);
       font-weight: 700;
     }
+    /* FE Skills page modal styling */
+    .skills-modal .modal-dialog {
+      max-width: 800px;
+    }
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+    .skills-list li {
+      background: #f8f9fa;
+      padding: 10px 15px;
+      border-radius: 12px;
+      border-left: 4px solid #d4af37;
+      font-size: 0.9rem;
+    }
     @media (max-width: 768px) {
       .display-4 {
         font-size: 2.2rem;
@@ -216,7 +246,9 @@
           <i class="bi bi-patch-check-fill me-1" style="color:#d4af37;"></i> Chartered ALFBF | FCA Wealth Licence
         </div>
         <h1 class="display-3 fw-bold mb-3">Patrick Williams <span style="color:#0a2540;"><br>Chartered Financial Planner</span></h1>
-        <p class="lead mb-4 text-secondary">With over 2 decades of accountancy & business strategy experience, I now help clients build, protect and grow wealth as a fully qualified Financial Adviser. <strong>FE Analytics Certified</strong>.</p>
+        <p class="lead mb-4 text-secondary">With over 2 decades of accountancy & business strategy experience,
+          I now help clients build, protect and grow wealth 
+          as a fully qualified Financial Adviser. <strong>FE Analytics Certified</strong> <a href="fe-analytics.html" title="View FE Analytics Skills"><img src="images/FE_Analytics_Certified_2026.jpg" style="width:44px;height:44px;cursor:pointer;vertical-align:middle;object-fit:contain;" alt="FE Analytics"></a>.</p>
         <div class="d-flex flex-wrap gap-3 mb-4">
           <a href="#contact" class="btn btn-gold px-4 py-2 rounded-pill"><i class="bi bi-envelope-paper me-2"></i>Arrange a consultation</a>
           <a href="#credentials" class="btn btn-outline-navy px-4 py-2 rounded-pill"><i class="bi bi-journal-bookmark-fill me-2"></i>View my credentials</a>
@@ -247,14 +279,17 @@
     <div class="row g-5">
       <div class="col-md-7">
         <h2 class="section-title fs-1 fw-bold">Professional Profile</h2>
-        <p class="fs-5 mb-3">An experienced <strong>Bookkeeper/Accountant with over 2 decades</strong> of experience, having created bespoke online accounting platforms that maximised efficiency for diverse businesses. Now transitioning as a <strong>self-employed trainee financial adviser at Aitana Financial Services</strong>, he holds the <strong>FCA Wealth Licence</strong> and actively provide investment advice to retail clients.</p>
-        <p class="mb-3">Currently Currently working towards the Mortgage & Protection licence (CEMAP Advanced) to offer holistic mortgage and protection advice. Patrick's unique blend of technical accounting mastery and financial planning ensures robust, client-centric solutions.</p>
+        <p class="fs-5 mb-3">I am an experienced <strong>Bookkeeper/Accountant with over 2 decades</strong> of experience, having created bespoke online accounting platforms that maximised efficiency for diverse businesses. Now transitioning as a <strong>self-employed trainee financial adviser at Aitana Financial Services</strong>, I hold the <strong>FCA Wealth Licence</strong> and actively provide investment advice to retail clients.</p>
+        <p class="mb-3">Currently working towards the Mortgage & Protection licence (CEMAP Advanced) to offer holistic mortgage and protection advice. My unique blend of technical accounting mastery and financial planning ensures robust, client-centric solutions.</p>
         <div class="row mt-4">
           <div class="col-sm-6">
             <ul class="list-unstyled">
               <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#d4af37;"></i> FCA Wealth Licence (Retail Investment)</li>
               <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#d4af37;"></i> Certificate in Mortgage Advice (CeMAP)</li>
               <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#d4af37;"></i> Equity Release Certified (CER)</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#d4af37;"></i> Certified Practitioner In Specialist Property Finance (CPSP) - April 2026</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#d4af37;"></i> Money First Aid Certificate - Jan 2026</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#d4af37;"></i> Certified FE Analytics User - May 2026 <a href="fe-analytics.html" title="View FE Analytics Skills"><img src="images/FE_Analytics_Certified_2026.jpg" class="digital-badge" style="width:22px;height:22px;cursor:pointer;vertical-align:middle;object-fit:contain;" alt="FE Analytics"></a></li>
             </ul>
           </div>
           <div class="col-sm-6">
@@ -283,7 +318,6 @@
             <span class="skill-tag bg-white border">Institute of Financial Accountants</span>
             <span class="skill-tag bg-white border">IAB (Former)</span>
           </div>
-   
           <div class="mt-4 pt-2 text-center">
             <a href="https://aitana.co.uk/team/" target="_blank" class="btn btn-sm btn-outline-navy rounded-pill px-3"><i class="bi bi-box-arrow-up-right"></i> Aitana Financial Services</a>
           </div>
@@ -293,7 +327,7 @@
   </div>
 </section>
 
-<!-- Qualifications & Education Section (first-person subtle) -->
+<!-- Qualifications & Education Section (with digital badges) -->
 <section id="credentials" class="py-5 bg-light">
   <div class="container">
     <div class="text-center mb-5">
@@ -302,16 +336,18 @@
     <div class="row g-4">
       <div class="col-md-6 col-lg-4">
         <div class="card-hover card p-3 h-100 shadow-sm rounded-4">
-          <div class="card-body"><i class="bi bi-mortarboard fs-1" style="color:#d4af37;"></i><h5 class="card-title fw-bold mt-2">Level 6 Diploma in Advanced Financial Advice</h5><p class="text-muted">LIBF · May 2024</p><hr><small>Chartered status pathway</small></div>
+          <div class="card-body"><i class="bi bi-mortarboard fs-1" style="color:#d4af37;"></i><h5 class="card-title fw-bold mt-2">Level 6 Diploma in Advanced Financial Advice</h5><p class="text-muted">LIBF · May 2024</p><hr><small>Chartered status pathway</small> <img src="images/Chartered_Financial_Adviser_LIBF.png" class="digital-badge" style="width:36px;height:36px;object-fit:contain;margin-left:8px;vertical-align:middle;cursor:pointer;" title="Chartered Financial Adviser - LFBF" alt="Chartered Financial Adviser - LFBF"></div>
         </div>
       </div>
       <div class="col-md-6 col-lg-4">
         <div class="card-hover card p-3 h-100 shadow-sm rounded-4"><div class="card-body"><i class="bi bi-bank2 fs-1" style="color:#d4af37;"></i><h5 class="card-title fw-bold mt-2">Level 4 Diploma for Professional Financial Advisers</h5><p class="text-muted">Chartered Banker Institute · Mar 2024</p><small>R01 to R06</small></div></div>
       </div>
-      <div class="col-md-6 col-lg-4"><div class="card-hover card p-3 h-100 shadow-sm rounded-4"><div class="card-body"><i class="bi bi-house-heart fs-1" style="color:#d4af37;"></i><h5 class="card-title fw-bold mt-2">Certificate in Mortgage Advice & Practice</h5><p class="text-muted">LIBF · Sept 2024</p><small>CeMAP qualified</small></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="card-hover card p-3 h-100 shadow-sm rounded-4"><div class="card-body"><i class="bi bi-house-heart fs-1" style="color:#d4af37;"></i><h5 class="card-title fw-bold mt-2">Certificate in Mortgage Advice & Practice (CeMAP)</h5><p class="text-muted">LIBF · Sept 2024</p><small>CeMAP qualified</small> <img src="images/CeMAP_Professional.png" class="digital-badge" style="width:36px;height:36px;object-fit:contain;margin-left:8px;vertical-align:middle;cursor:pointer;" title="CeMAP Professional - LIBF" alt="CeMAP Professional - LIBF"> <img src="images/Certified_Mortgage_Adviser.png" class="digital-badge" style="width:36px;height:36px;object-fit:contain;margin-left:8px;vertical-align:middle;cursor:pointer;" title="Certified Mortgage Adviser - LIBF" alt="Certified Mortgage Adviser - LIBF"></div></div></div>
       <div class="col-md-6 col-lg-4"><div class="card-hover card p-3 h-100 shadow-sm rounded-4"><div class="card-body"><i class="bi bi-graph-up-arrow fs-1" style="color:#d4af37;"></i><h5 class="card-title fw-bold mt-2">Certificate in Regulated Equity Release</h5><p class="text-muted">LIBF · Nov 2024</p></div></div></div>
-      <div class="col-md-6 col-lg-4"><div class="card-hover card p-3 h-100 shadow-sm rounded-4"><div class="card-body"><i class="bi bi-calculator-fill fs-1" style="color:#d4af37;"></i><h5 class="card-title fw-bold mt-2">Post Graduate Diploma - Advanced Accounting</h5><p class="text-muted">University of East London · June 1998 (equiv 80% ACCA)</p></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="card-hover card p-3 h-100 shadow-sm rounded-4"><div class="card-body"><i class="bi bi-building fs-1" style="color:#d4af37;"></i><h5 class="card-title fw-bold mt-2">Certified Practitioner in Specialist Property Finance (CPSP)</h5><p class="text-muted">LIBF · April 2026</p><small>Specialist property finance expert</small> <img src="images/Certified_Practitioner_In_Specialist_Property_Finance.png" class="digital-badge" style="width:36px;height:36px;object-fit:contain;margin-left:8px;vertical-align:middle;cursor:pointer;" title="Certified Practitioner in Specialist Property Finance - LIBF" alt="Certified Practitioner in Specialist Property Finance - LIBF"></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="card-hover card p-3 h-100 shadow-sm rounded-4"><div class="card-body"><i class="bi bi-heart-pulse fs-1" style="color:#d4af37;"></i><h5 class="card-title fw-bold mt-2">Money First Aid Certificate</h5><p class="text-muted">Money First Aid · Jan 2026</p><small>Certified Money First Aider</small> <img src="images/Certified_Money_First_Aider_logo.png" class="digital-badge" style="width:36px;height:36px;object-fit:contain;margin-left:8px;vertical-align:middle;cursor:pointer;" title="Certified Money First Aider" alt="Certified Money First Aider"></div></div></div>
       <div class="col-md-6 col-lg-4"><div class="card-hover card p-3 h-100 shadow-sm rounded-4"><div class="card-body"><i class="bi bi-bar-chart-steps fs-1" style="color:#d4af37;"></i><h5 class="card-title fw-bold mt-2">Level 4 Advanced CEMAP (in progress)</h5><p class="text-muted">LIBF · Expected completion Sept 2026</p><span class="badge bg-warning-subtle text-dark">Mortgage & Protection licence track</span></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="card-hover card p-3 h-100 shadow-sm rounded-4"><div class="card-body"><i class="bi bi-graph-up fs-1" style="color:#d4af37;"></i><h5 class="card-title fw-bold mt-2">Certified FE Analytics User</h5><p class="text-muted">FE Analytics Academy · May 2026</p><small>Advanced investment analytics</small><a href="fe-analytics.html" title="View FE Analytics Skills &rarr;"><img src="images/FE_Analytics_Certified_2026.jpg" class="digital-badge" style="width:72px;height:72px;margin-left:8px;vertical-align:middle;object-fit:contain;" alt="FE Analytics Certified 2026"></a></div></div></div>
     </div>
   </div>
 </section>
@@ -359,11 +395,7 @@
   </div>
 </section>
 
-<!-- Contact with BOT detection & direct email via mailto (using FormSubmit.co as secure relay) 
-     To ensure email truly sends to patrickwilliams5@yahoo.co.uk, we implement a hidden honeypot bot detection, plus a fetch to a free email API (Formspree or similar) but for pure static HTML we use mailto fallback? 
-     Actually best is to use a simple serverless POST to a reliable email service. I will implement EmailJS-like but without needing external lib? I'll use a secure but direct FormSubmit endpoint that redirects to his email. Since I can't install backend, I'll implement using fetch to "https://formspree.io/f/mldrjzka" but that requires account. Instead I will craft a working form with bot detection and use mailto as fallback but modern employers expect direct delivery: I'll integrate a simple public API called "Web3Forms" or I'll make the form submit via GET to a proxy? For true direct sending I'll implement using form action="https://formsubmit.co/patrickwilliams5@yahoo.co.uk" with bot detection and custom validation.
-     This is robust and sends directly to his email. Add honeypot field.
-  -->
+<!-- Contact Section -->
 <section id="contact" class="py-5 bg-navy text-white" style="background: #0a2540;">
   <div class="container">
     <div class="row g-5 align-items-center">
@@ -373,122 +405,55 @@
         <div class="mt-4 d-flex flex-column gap-3">
           <div><i class="bi bi-telephone-fill me-3 fs-5" style="color:#d4af37;"></i> <strong>07432604830</strong></div>
           <div><i class="bi bi-envelope-fill me-3 fs-5" style="color:#d4af37;"></i> patrickwilliams5@yahoo.co.uk</div>
-          <div><i class="bi bi-geo-alt-fill me-3 fs-5" style="color:#d4af37;"></i> London, United Kingdom (remote & face-to-face consultations)</div>
-          <div><i class="bi bi-linkedin me-3 fs-5" style="color:#d4af37;"></i> linkedin.com/in/patrick-williams-finance</div>
+          <div><i class="bi bi-geo-alt-fill me-3 fs-5" style="color:#d4af37;"></i> London, United Kingdom</div>
         </div>
       </div>
       <div class="col-lg-5">
         <div class="bg-white p-4 rounded-4 text-dark shadow">
-          <h4 class="fw-bold mb-3">Request a callback / Send message</h4>
+          <h4 class="fw-bold mb-3">Request a callback</h4>
           <form id="contactForm" action="https://formsubmit.co/patrickwilliams5@yahoo.co.uk" method="POST" onsubmit="return validateBot(event)">
-            <!-- honeypot bot detection field (hidden) -->
             <input type="text" name="_honey" style="display:none">
-            <!-- disable captcha but optional -->
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_subject" value="New enquiry from Patrick Williams Portfolio">
-            <input type="hidden" name="_next" value="https://patrickwilliams.uk/thankyou">
-            <div class="mb-3">
-              <input type="text" class="form-control" name="name" id="nameInput" placeholder="Full name" required>
-            </div>
-            <div class="mb-3">
-              <input type="email" class="form-control" name="email" id="emailInput" placeholder="Email address" required>
-            </div>
-            <div class="mb-3">
-              <textarea class="form-control" name="message" rows="3" placeholder="Brief message or enquiry" id="msgInput" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-gold w-100 rounded-pill py-2 fw-semibold">Send message <i class="bi bi-send"></i></button>
+            <div class="mb-3"><input type="text" class="form-control" name="name" placeholder="Full name" required></div>
+            <div class="mb-3"><input type="email" class="form-control" name="email" placeholder="Email" required></div>
+            <div class="mb-3"><textarea class="form-control" name="message" rows="3" placeholder="Message" required></textarea></div>
+            <button type="submit" class="btn btn-gold w-100 rounded-pill py-2">Send <i class="bi bi-send"></i></button>
             <div id="formFeedback" class="mt-3 small text-center text-dark"></div>
           </form>
-          <p class="small text-muted mt-3 text-center">I’ll respond within 24 hours. No obligation.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Footer with live link -->
 <footer class="py-4 bg-white border-top">
   <div class="container text-center">
-    <p class="mb-0 small text-secondary">© 2026 Patrick Williams - Chartered Financial Planner. FCA Wealth Licence holder. <br>This site is for professional informational purposes. | <a href="http://217.154.38.190/" target="_blank" class="text-decoration-none">BIS Smart Digital Solutions</a></p>
+    <p class="mb-0 small text-secondary">© 2026 Patrick Williams - Chartered Financial Planner. FCA Wealth Licence holder. | <a href="http://217.154.38.190/" target="_blank" class="text-decoration-none">BIS Smart Digital Solutions</a></p>
   </div>
 </footer>
 
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  // NAVIGATION INTERACTIVE: on hover colour changes (CSS does), plus active link management.
+  // Navigation active states
   const navLinks = document.querySelectorAll('.nav-link-custom');
-  function setActive(selectedNav) {
-    navLinks.forEach(link => {
-      link.classList.remove('active-link');
-    });
-    selectedNav.classList.add('active-link');
-  }
+  function setActive(selected) { navLinks.forEach(l => l.classList.remove('active-link')); selected.classList.add('active-link'); }
   navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      setActive(this);
-      // Smooth scroll handled elsewhere, but active style persists.
-      const targetId = this.getAttribute('href');
-      if (targetId && targetId !== "#") {
-        e.preventDefault();
-        const targetElem = document.querySelector(targetId);
-        if (targetElem) {
-          targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-    });
-    // also add hover is already via CSS, we keep third color active.
+    link.addEventListener('click', function(e) { setActive(this); const id = this.getAttribute('href'); if (id && id !== "#") { e.preventDefault(); document.querySelector(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
   });
-  // Optionally detect scroll to set active automatically based on sections
   const sections = ['home', 'about', 'credentials', 'experience', 'skills', 'contact'];
-  window.addEventListener('scroll', () => {
-    let current = '';
-    for (let section of sections) {
-      const element = document.getElementById(section);
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        if (rect.top <= 150 && rect.bottom >= 80) {
-          current = section;
-          break;
-        }
-      }
-    }
-    navLinks.forEach(link => {
-      link.classList.remove('active-link');
-      const href = link.getAttribute('href')?.substring(1);
-      if (href === current) {
-        link.classList.add('active-link');
-      }
-    });
-  });
-
-  // Bot detection & form validation with honeypot
+  window.addEventListener('scroll', () => { let current = ''; for (let s of sections) { const el = document.getElementById(s); if (el) { const rect = el.getBoundingClientRect(); if (rect.top <= 150 && rect.bottom >= 80) { current = s; break; } } } navLinks.forEach(link => { link.classList.remove('active-link'); if (link.getAttribute('href')?.substring(1) === current) link.classList.add('active-link'); }); });
+  
+  
+  // Bot detection
   function validateBot(event) {
-    const honeyInput = document.querySelector('input[name="_honey"]');
-    if (honeyInput && honeyInput.value !== "") {
-      event.preventDefault();
-      document.getElementById('formFeedback').innerHTML = '<div class="alert alert-danger">Bot detected. Submission blocked.</div>';
-      return false;
-    }
-    const name = document.getElementById('nameInput')?.value.trim();
-    const email = document.getElementById('emailInput')?.value.trim();
-    const msg = document.getElementById('msgInput')?.value.trim();
-    if (!name || !email || !msg) {
-      event.preventDefault();
-      document.getElementById('formFeedback').innerHTML = '<div class="alert alert-danger">Please fill all fields.</div>';
-      return false;
-    }
-    document.getElementById('formFeedback').innerHTML = '<div class="alert alert-success">Sending your message...</div>';
-    return true; // form will submit to formsubmit.co which emails patrickwilliams5@yahoo.co.uk
+    const honey = document.querySelector('input[name="_honey"]');
+    if (honey && honey.value !== "") { event.preventDefault(); document.getElementById('formFeedback').innerHTML = '<div class="alert alert-danger">Bot detected.</div>'; return false; }
+    return true;
   }
-  // ensure fallback feedback after native submit
   const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-      if (!validateBot(e)) {
-        e.preventDefault();
-      }
-    });
-  }
+  if(contactForm) contactForm.addEventListener('submit', function(e) { if(!validateBot(e)) e.preventDefault(); });
 </script>
 </body>
 </html>
